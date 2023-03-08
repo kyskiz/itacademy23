@@ -1,7 +1,7 @@
-<h2>This is new generated home component</h2>
+<h2 appElementStyle>{{'This is new generated home component' | hiLoString: false }}</h2>
 
 <ng-container *ngFor="let person of persons">
   <app-person-info *ngIf="person.age > 30" [person]="person"></app-person-info>
 </ng-container>
 
-<app-independent></app-independent>
+<app-independent appElementStyle></app-independent>
