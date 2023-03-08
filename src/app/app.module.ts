@@ -5,16 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PersonInfoComponent } from './person-info/person-info.component';
+import { IndependentComponent } from './independent/independent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PersonInfoComponent
+    PersonInfoComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    IndependentComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
