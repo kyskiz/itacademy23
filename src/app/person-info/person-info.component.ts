@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Person } from '../types';
 
 @Component({
@@ -8,4 +8,9 @@ import { Person } from '../types';
 })
 export class PersonInfoComponent {
   @Input() person: Person;
+  @Output() onPersonNameClick: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+
+  handleComponentPersonNameClick(event: MouseEvent) {
+    this.onPersonNameClick.emit(event);
+  }
 }

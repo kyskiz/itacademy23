@@ -8,6 +8,7 @@ import { Person } from '../types';
 })
 export class HomeComponent implements OnInit {
   persons: Person[];
+  person: Person;
 
   constructor() {
     this.persons = [
@@ -17,10 +18,15 @@ export class HomeComponent implements OnInit {
       { name: 'Dwight', age: 31 },
       { name: 'Angela', age: 29 },
     ];
+    this.person = this.persons[0];
   }
 
   ngOnInit() {
 
+  }
+
+  handlePersonNameClick(event: MouseEvent) {
+    console.log(`Person name was clicked at [${event.x}, ${event.y}]`);
   }
 
 }

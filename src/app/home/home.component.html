@@ -1,5 +1,5 @@
 <h2>This is new generated home component</h2>
 
-<ng-container *ngFor="let person of persons">
-  <app-person-info *ngIf="person.age > 30" [person]="person"></app-person-info>
-</ng-container>
+<app-person-info [person]="person"
+                 (onPersonNameClick)="handlePersonNameClick($event)"></app-person-info>
+
