@@ -1,0 +1,12 @@
+<fieldset
+  *ngFor="let one_sheep of sheep$ | async"
+  routerLink="/sheep/{{ one_sheep.name.toLowerCase() }}"
+>
+  <legend>{{ one_sheep.name }}</legend>
+  <dl>
+    <dt>Title</dt>
+    <dl>{{ one_sheep.title }}</dl>
+    <dt>Tagline</dt>
+    <dl>{{ one_sheep.tagline }}</dl>
+  </dl>
+</fieldset>

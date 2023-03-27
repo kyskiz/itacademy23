@@ -1,0 +1,11 @@
+<ng-container *ngIf="sheep$ | async as sheep">
+  <header>
+    <h2>
+      {{ sheep.name }}
+    </h2>
+  </header>
+  <section>
+    <h3>{{ sheep.tagline }}</h3>
+    <article>{{ sheep.description }}</article>
+  </section>
+</ng-container>
