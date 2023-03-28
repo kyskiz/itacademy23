@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SheepComponent } from './sheep.component';
+import { SheepService } from '../services/sheep.service';
+import { sheepServiceMock, sheepsMock } from '../mocks/sheepServiceMock';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('SheepComponent', () => {
   let component: SheepComponent;
@@ -8,7 +12,15 @@ describe('SheepComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SheepComponent ]
+      imports: [
+        RouterTestingModule,
+      ],
+      declarations: [ SheepComponent ],
+      providers: [
+        { provide: SheepService, useValue: sheepServiceMock
+        }
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
 
@@ -19,5 +31,14 @@ describe('SheepComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('sheep$', () => {
+    it('should check if sheep are sheep we expect', (done) => {
+      component.sheep$.subscribe((sheep) => {
+        expect(sheep).toEqual(sheepsMock);
+        done();
+      });
+    })
   });
 });
